@@ -11,6 +11,7 @@ public class KitClock : MonoBehaviour
 
     public float t;
     public int hour = 0;
+    public int birdPops = 0;
 
 
     public UnityEvent<int> OnTheHour;
@@ -61,11 +62,15 @@ public class KitClock : MonoBehaviour
             hourHand.Rotate(0, 0, -(30 / timeAnHourTakes) * Time.deltaTime);
             yield return null;
         }
+
+     
+
         hour++;
 
         if (hour == 13)
         {
             hour = 1;
+            birdPops = 1;
         }
         OnTheHour.Invoke(hour);
     }

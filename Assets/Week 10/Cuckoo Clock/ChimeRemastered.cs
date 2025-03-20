@@ -10,6 +10,11 @@ public class KitChime : MonoBehaviour
     {
         clock.OnTheHour.AddListener(Chime);
     }
+    public void birdPopsUp()
+    {
+        print("Bird Poped!");
+    }
+
     public void Chime(int hour)
     {
         Debug.Log("Chiming " + hour + " o'clock !");
