@@ -54,19 +54,21 @@ public class KitClock : MonoBehaviour
     IEnumerator MoveTheClockHandsOneHour()
     {
         t = 0;
-        while (t< timeAnHourTakes)
+        while (t < timeAnHourTakes)
         {
             t += Time.deltaTime;
             minuteHand.Rotate(0, 0, -(360 / timeAnHourTakes) * Time.deltaTime);
             hourHand.Rotate(0, 0, -(30 / timeAnHourTakes) * Time.deltaTime);
             yield return null;
         }
+
         hour++;
 
         if (hour == 13)
         {
             hour = 1;
         }
+
         OnTheHour.Invoke(hour);
     }
 
