@@ -8,11 +8,10 @@ public class changeAppearance : MonoBehaviour
 {
 
     public Image image;
-    public Color yellow;
 
     public void MouseIsOver()
     {
-        image.color = yellow;
+        image.color = Color.yellow;
     }
 
     public void MouseNotOver()
@@ -20,3 +19,4 @@ public class changeAppearance : MonoBehaviour
         image.color = Color.gray;
     }
 }
+
