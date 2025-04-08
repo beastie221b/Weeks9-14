@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
+using UnityEngine.UI;
 
 public class Penguin : MonoBehaviour
 {
@@ -10,6 +12,9 @@ public class Penguin : MonoBehaviour
     float IFrameSpeed = 0.5f;
     public UnityEvent penguinEvent = new UnityEvent();
     IEnumerator RollingCoroutine;
+    public Slider healthBar;
+    public TMP_Text score;
+    int currentScore = 0;
 
     void Start()
     {
@@ -26,12 +31,16 @@ public class Penguin : MonoBehaviour
             rolling = true;
             Roll();
         }
+
+        healthBar.value = health;
+        score.text = "SCORE: " + currentScore.ToString();
     }
 
     void Roll()
     {
         // Remove damage listener, making the player invisible.
         penguinEvent.RemoveAllListeners();
+        penguinEvent.AddListener(Dodge);
         // Start rolling coroutine to end rolling.
         RollingCoroutine = RollEnd();
         StartCoroutine(RollingCoroutine);
@@ -52,5 +61,10 @@ public class Penguin : MonoBehaviour
     {
         // Penguin hurts.
         health -= 10;
+    }
+
+    public void Dodge()
+    {
+        currentScore++;
     }
 }

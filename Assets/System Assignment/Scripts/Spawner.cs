@@ -54,4 +54,11 @@ public class Spawner : MonoBehaviour
             speed += 1f;
         }
     }
+
+    public void speedReset()
+    {
+        // Reset the speed using UI button.
+        speed = 5f;
+        StopCoroutine(timeIncrement);
+    }
 }
