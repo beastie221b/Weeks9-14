@@ -38,6 +38,9 @@ public class Spawner : MonoBehaviour
             newObject = Instantiate(large_obstacle, transform);
         }
 
+        // Set the position of the prefebs infront of the background.
+        newObject.transform.position = new Vector3 (newObject.transform.position.x, newObject.transform.position.y, -6);
+
         // Set the obstacl speed and give access to player object.
         Obstacles obstacle = newObject.GetComponent<Obstacles>();
         penguin = GetComponentInChildren<Penguin>();

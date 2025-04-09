@@ -38,7 +38,7 @@ public class Obstacles : MonoBehaviour
         }
 
         // Move obstacle to the left base on speed.
-        Vector2 pos = transform.position;
+        Vector3 pos = transform.position;
 
         pos.x -= speed * Time.deltaTime;
         transform.position = pos;
